@@ -11,6 +11,22 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Ventas
+                    </a>
+                    <ul class="dropdown-menu bg-dark">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/crud_practica9/vistas/ventas/index.php">Ingresar venta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/crud_practica9/vistas/ventas/buscar.php">Buscar venta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/crud_practica9/controladores/ventas/detalle_ventas.php">Detalle de venta</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Productos
                     </a>
                     <ul class="dropdown-menu bg-dark">
@@ -32,23 +48,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/crud_practica9/vistas/clientes/buscar.php">Buscar cliente</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ventas
-                    </a>
-                    <ul class="dropdown-menu bg-dark">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/crud_practica9/vistas/ventas/index.php">Ingresar venta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/crud_practica9/vistas/ventas/buscar.php">Buscar venta</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/crud_practica9/controladores/ventas/detalle_ventas.php">Buscar detalle de venta</a>
                         </li>
                     </ul>
                 </li>
