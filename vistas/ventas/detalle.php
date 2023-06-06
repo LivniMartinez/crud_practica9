@@ -6,116 +6,24 @@ require '../../modelos/Venta.php';
 require '../../modelos/Detalle.php';
     try {
         $id = $_GET['venta_id'];
-        $venta = new Venta();
+        $venta = new Venta($_GET);
+        $detalle = new Detalle([
+            'detalle_venta' => $id
+        ]);
 
-        $factura = $venta->factura($id);
-
- 
-        // $productos = $detalle->buscar();
-        // echo "<pre>";
-        // var_dump($ventas);
-        // echo "</pre>";
-        // echo "<pre>";
-        // var_dump($productos);
-        // echo "</pre>";
-        // exit;
-        // // $error = "NO se guardó correctamente";
-        $subtotal = 0;
-        $cantidad = 0;
+        $ventas = $venta->buscar();
+        $productos = $detalle->buscar();
+        echo "<pre>";
+        var_dump($ventas);
+        echo "</pre>";
+        echo "<pre>";
+        var_dump($productos);
+        echo "</pre>";
+        exit;
+        // $error = "NO se guardó correctamente";
     } catch (PDOException $e) {
         $error = $e->getMessage();
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
 ?>
-<?php include_once '../../includes/header.php'?>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 table-responsive">
-            <table class="table table-bordered">
-    <thead>
-        <tr class="text-center table-dark">
-            <th colspan="3">DETALLE DE LA FACTURA.</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>FECHA:</strong></td>
-            <?php foreach ($factura as $key => $venta) : ?>
-                <td><?= $venta['VENTA_FECHA'] ?></td>
-            <?php endforeach ?>
-        </tr>
-        <tr>
-            <td><strong>NOMBRE:</strong></td>
-            <?php foreach ($factura as $key => $venta) : ?>
-                <td><?= $venta['CLIENTE_NOMBRE'] ?></td>
-            <?php endforeach ?>
-        </tr>
-        <tr>
-            <td><strong>NIT:</strong></td>
-            <?php foreach ($factura as $key => $venta) : ?>
-                <td><?= $venta['CLIENTE_NIT'] ?></td>
-            <?php endforeach ?>
-        </tr>
-        <?php if (count($factura) == 0) : ?>
-            <tr>
-                <td colspan="3">NO EXISTEN REGISTROS</td>
-            </tr>
-        <?php endif ?>
-    </tbody>
-</table>
-            </div>
-        </div>
-
-        <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 table-responsive">
-                <table class="table table-bordered">
-                    <thead >
-                        <tr class="text-center table-dark">
-                            <th colspan="7">PRODUCTOS</th>
-                        </tr>
-                    <thead class="table-dark">
-                        <tr>
-                            <th>NO.</th>
-                            <th>PRODUCTO</th>
-                            <th>PRECIO</th>
-                            <th>CANTIDAD</th>
-                            <th>SUBTOTAL</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (count($factura) > 0) : ?>
-                            <?php foreach ($factura as $key => $venta) : ?>
-                                <tr>
-                                    <td><?= $key + 1 ?></td>
-                                    <td><?= $venta ['PRODUCTO_NOMBRE'] ?></td>
-                                    <td><?= $venta['PRODUCTO_PRECIO'] ?></td>
-                                    <td><?= $venta['DETALLE_CANTIDAD'] ?></td>
-                                    <td><?= $venta['TOTAL'] ?></td>
-                                    
-                                </tr>
-                            <?php endforeach ?>
-                        <?php else : ?>
-                            <tr>
-                                <td colspan="8">NO EXISTEN REGISTROS</td>
-                            </tr>
-                        <?php endif ?>
-                        <tr>
-                        <td colspan="4">Total:</td>
-                        <td><?= $venta['TOTAL'] ?></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-4">
-                <a href="/crud_practica9/vistas/ventas/buscar.php" class="btn btn-info w-100">Volver al formulario</a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
