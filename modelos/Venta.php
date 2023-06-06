@@ -58,4 +58,8 @@ class Venta extends Conexion{
     return $resultado;
 }
 
+    
+
+
+
 }
