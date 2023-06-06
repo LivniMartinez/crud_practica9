@@ -46,15 +46,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/crud_practica9/vistas/ventas/buscar.php">Buscar venta</a>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Detalle de la Venta
-                    </a>
-                    <ul class="dropdown-menu bg-dark">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/crud_practica9/controladores/ventas/detalle_ventas.php">Ingresar detalle de venta</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/crud_practica9/controladores/ventas/detalle_ventas.php">Buscar detalle de venta</a>
